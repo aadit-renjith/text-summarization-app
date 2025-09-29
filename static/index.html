@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summarization Web App</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Text Summarization App</h1>
+        <form id="summaryForm">
+            <label for="inputText">Enter Text (Max 2000 characters):</label>
+            <textarea 
+                id="inputText" 
+                name="inputText" 
+                rows="10" 
+                cols="50" 
+                maxlength="2000" 
+                required 
+                placeholder="Paste your text here...">
+            </textarea>
+            <span id="charCount">0 / 2000 characters</span>
+            
+            <div class="options">
+                <div class="option-group">
+                    <label for="mode">Mode:</label>
+                    <select id="mode" name="mode">
+                        <option value="abstractive">Abstractive (Generative Summary)</option>
+                        <option value="extractive">Extractive (Key Sentence Selection)</option>
+                    </select>
+                </div>
+                <div class="option-group" id="lengthGroup">
+                    <label for="length">Summary Length (Sentences, for Extractive only):</label>
+                    <input type="number" id="length" name="length" min="1" max="10" value="3">
+                </div>
+            </div>
+            <button type="submit">Summarize</button>
+        </form>
+        <div id="output" class="output-section">
+            <!-- Summary or error will appear here -->
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
